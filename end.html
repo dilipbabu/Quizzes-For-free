@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Congratulations!</title>
+    <link rel="stylesheet" href="app.css" />
+  </head>
+  <body>
+    <audio autoplay loop> 
+      <source src="assets/Art_Of_Silence_.mp3" type="audio/mpeg">
+      </source>
+  </audio>
+    <div class="container">
+      <div id="end" class="flex-center flex-column">
+        <h1 id="finalScore"></h1>
+        <form>
+          <input
+            type="text"
+            name="username"
+            id="username"
+            placeholder="NAME HERE"
+          />
+          <button
+            type="submit"
+            class="btn"
+            id="saveScoreBtn"
+            onclick="saveHighScore(event)"
+            disabled
+          >
+            Save
+          </button>
+        </form>
+        <a class="btn" href="game.html">Play Again</a>
+        <a class="btn" href="index.html">Go Home</a>
+      </div>
+    </div>
+    <script src="end.js"></script>
+  </body>
+</html>
