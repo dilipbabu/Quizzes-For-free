@@ -14,7 +14,7 @@ let availableQuesions = [];
 let questions = [];
 
 fetch(
-    'https://opentdb.com/api.php?amount=30&category=18&difficulty=easy&type=multiple'
+       'https://opentdb.com/api.php?amount=50&category=18&difficulty=medium&type=multiple'
 )
     .then((res) => {
         return res.json();
@@ -50,7 +50,7 @@ fetch(
 
 //********************************************   Number of Questions and Score Variable ********************************************/
 const CORRECT_BONUS = 10;
-const MAX_QUESTIONS = 10;
+const MAX_QUESTIONS = 05;
 
 
 
@@ -102,15 +102,26 @@ choices.forEach((choice) => {
 
         if (classToApply === 'correct') {
             incrementScore(CORRECT_BONUS);
-        }
-
-        selectedChoice.parentElement.classList.add(classToApply);
-      
-
+            
         setTimeout(() => {
             selectedChoice.parentElement.classList.remove(classToApply);
             getNewQuestion();
         }, 1000);
+        }
+       
+        
+        selectedChoice.parentElement.classList.add(classToApply);
+        if(classToApply === 'incorrect') {
+            alert('You Clicked the wrong answer!\n \n\nTry Googling the question and finding the answer. :) \n \n \n*Note the question will disappear in 5 sec.' );
+            setTimeout(() => {
+                selectedChoice.parentElement.classList.remove(classToApply);
+                getNewQuestion();
+            }, 5000);
+         
+           
+        }
+      
+
     });
 });
 incrementScore = (num) => {
